@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Карта RP-мира</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { height: 100vh; width: 100%; }
+        .header {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h3>Карта от Mirchinka1</h3>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Центр карты - Москва
+        const map = L.map('map').setView([55.75, 37.61], 3);
+        
+        // Основа карты
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // Добавляем маркер
+        L.marker([55.75, 37.61])
+            .addTo(map)
+            .bindPopup("<b>Моя территория</b>");
+    </script>
+</body>
+</html>
